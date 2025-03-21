@@ -1,9 +1,9 @@
 const examples = [
-  "Example1: This is the first example of NOOL code.",
-  "Example2: Here's how you create a function in NOOL.",
-  "Example3: NOOL makes loops fun and intuitive!",
-  "Example4: Error handling in NOOL is straightforward.",
-  "Example5: Advanced features of NOOL demonstrated here.",
+  `class Person {\n  name: string;\n  age: int;\n\n  skill sayHello(): string {\n    reward "Hello, my name is " + this.name + " and I am " + this.age + " years old.";\n  }\n}\n\nstat human = Person("Felix", 20);\n\necho(human.sayHello()); // Output: Hello, my name is Felix and I am 20 years old.`,
+  `for(i in 1...20) {\n  echo(i);\n  i++;\n}`,
+  `skill checkIfEven(number: int): boolean {\n  encounter(number % 2 == 0) {\n    reward true;\n  } fallback {\n    reward false;\n  }\n}\n\necho(checkIfEven(4)); // Output: true\necho(checkIfEven(5)); // Output: false`,
+  `skill fibonacci(n: int): int {\n  stat fib = [0, 1];\n  stat i = 2;\n  stat newValue = 0;\n  quest (i <= n) {\n    newValue = fib[i - 1] + fib[i - 2];\n    push(fib, newValue);\n    i = i + 1;\n  }\n  reward fib[length(fib) - 1];\n}\n\necho(fibonacci(n)); // Output: 55`,
+  `stat number = 1;\nquest(number < 20) {\n  echo(number);\n  number = number + 2;\n}`,
 ];
 let activeExample = examples[0];
 
@@ -18,9 +18,10 @@ document.addEventListener("DOMContentLoaded", () => {
     descriptionElement.textContent = description;
   }
 
-  const exampleElement = document.querySelector(".body-editor-content p");
-  if (exampleElement) {
-    exampleElement.textContent = activeExample;
+  // Update this to use the code element with ID "example-display"
+  const codeElement = document.getElementById("example-display");
+  if (codeElement) {
+    codeElement.textContent = activeExample;
   }
 
   document
@@ -69,9 +70,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function updateExample(index) {
   activeExample = examples[index];
-  const exampleElement = document.querySelector(".body-editor-content p");
-  if (exampleElement) {
-    exampleElement.textContent = activeExample;
+  // Update this to use the code element with ID "example-display"
+  const codeElement = document.getElementById("example-display");
+  if (codeElement) {
+    codeElement.textContent = activeExample;
   }
 
   updateActiveButton(index);
